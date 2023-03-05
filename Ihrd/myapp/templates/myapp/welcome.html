@@ -1,0 +1,15 @@
+{% extends "myapp/header.html" %} {% csrf_token %} {% block content %}
+<section>
+  <div class="form-box">
+    <div class="form-value">
+      <h2>Welcome, {{ username }}!</h2>
+
+      {% if user.is_authenticated %}
+      <a href="/logout">
+        <button>logout</button>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}
