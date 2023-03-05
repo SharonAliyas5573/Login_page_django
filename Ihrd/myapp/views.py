@@ -6,6 +6,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login ,logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required
 def welcome(request):
@@ -18,8 +19,7 @@ def homepage(request):
   return render(request = request, template_name="myapp/home.html" )
 
 
-
-
+@csrf_exempt
 def register_request(request):
 	if request.method == "POST":
 		form = NewUserForm(request.POST)
